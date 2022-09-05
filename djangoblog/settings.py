@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 import os
 import sys
-
+from django.urls import path
 
 def env_to_bool(env, default):
     str_val = os.environ.get(env)
