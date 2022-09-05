@@ -26,3 +26,4 @@ Whoosh==2.7.4
 user-agents==2.2.0
 redis==4.3.4
 sshtunnel
+whitenoise==6.2.0
