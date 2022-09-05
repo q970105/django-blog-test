@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 import os
 import sys
-from django.urls import path
 
 def env_to_bool(env, default):
     str_val = os.environ.get(env)
@@ -20,8 +19,8 @@ def env_to_bool(env, default):
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
-# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
