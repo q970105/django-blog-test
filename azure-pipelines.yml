@@ -1,4 +1,5 @@
 # Python Django
+
 # Test a Django project on multiple versions of Python.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
@@ -51,8 +52,18 @@ steps:
     python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
   displayName: 'Run tests'
 
+- task: SonarQubePrepare@5
+  inputs:
+    SonarQube: 'az sq_vm'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'django-blog_django-blog_AYMP5UFDFv5Oy_gHCpDH'
+    cliProjectName: 'django-blog'
+    cliSources: '.'
+    
 - task: PublishTestResults@2
   inputs:
     testResultsFiles: "**/TEST-*.xml"
     testRunTitle: 'Python $(PYTHON_VERSION)'
   condition: succeededOrFailed()
+
