@@ -62,9 +62,9 @@ steps:
 
 - task: SonarQubePrepare@5
   inputs:
-    SonarQube: 'az sq_vm'
+    SonarQube: 'djblogpublic'
     scannerMode: 'CLI'
     configMode: 'manual'
-    cliProjectKey: 'django-blog_django-blog_AYMP5UFDFv5Oy_gHCpDH'
-    cliProjectName: 'django-blog'
+    cliProjectKey: 'djblog_djblog_AYMP_mDYFv5Oy_gHCpDU'
+    cliProjectName: 'djblogpublic'
     cliSources: '.'
