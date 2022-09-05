@@ -52,6 +52,14 @@ steps:
     python manage.py test --testrunner xmlrunner.extra.djangotestrunner.XMLTestRunner --no-input
   displayName: 'Run tests'
 
+    
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: "**/TEST-*.xml"
+    testRunTitle: 'Python $(PYTHON_VERSION)'
+  condition: succeededOrFailed()
+
+
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'az sq_vm'
@@ -60,10 +68,3 @@ steps:
     cliProjectKey: 'django-blog_django-blog_AYMP5UFDFv5Oy_gHCpDH'
     cliProjectName: 'django-blog'
     cliSources: '.'
-    
-- task: PublishTestResults@2
-  inputs:
-    testResultsFiles: "**/TEST-*.xml"
-    testRunTitle: 'Python $(PYTHON_VERSION)'
-  condition: succeededOrFailed()
-
